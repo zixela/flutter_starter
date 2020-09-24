@@ -26,7 +26,7 @@ class _TabsPageState extends State<TabsPage> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          MyHomePage(title: 'test'),
+          MyHomePage(title: 'Home Screen'),
           List(),
           Profile(),
         ],
@@ -38,12 +38,12 @@ class _TabsPageState extends State<TabsPage> {
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Business'),
+            icon: Icon(Icons.search),
+            title: Text('Search'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            title: Text('School'),
+            icon: Icon(Icons.supervised_user_circle),
+            title: Text('Profile'),
           ),
         ],
         currentIndex: _selectedIndex,

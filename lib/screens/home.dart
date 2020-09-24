@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/app_provider.dart';
 
 import '../router/constants.dart';
 import '../router/route_manager.dart';
 import '../router/navigation_service.dart';
 
 import '../widgets/drawer.dart';
+
+import '../utils/locator.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -17,8 +22,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
   final arguments = {
-    "transitionType": TransitionType.SCALEROTATE,
+    "transitionType": TransitionType.SLIDERIGHT,
     "message": "Message Displays Here.",
     "color": Colors.greenAccent,
   };
@@ -36,6 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
     ).then((data) {
       print("$data");
     });
+    final appProvider = Provider.of<AppProvider>(context, listen: false);
+    appProvider.set('new state');
+
+    //final storageService = locator<StorageService>();
+
+    //StorageService();
+    //StorageService.setVal('test', 'test data');
   }
 
   @override
@@ -44,7 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Text('test'),
+      body: Center(
+          child: Text('test')
+      ),
       drawer: AppDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: goToList,

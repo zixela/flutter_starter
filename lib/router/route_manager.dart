@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import '../screens/home.dart';
 import '../screens/list.dart';
 import '../screens/detail.dart';
-import '../screens/bottom_tabs.dart';
+import '../widgets/bottom_tabs.dart';
 
 import '../router/constants.dart';
 

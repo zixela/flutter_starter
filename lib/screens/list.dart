@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+import '../providers/app_provider.dart';
+
 
 class List extends StatefulWidget {
   List();
@@ -12,10 +15,10 @@ class _ListState extends State<List> {
 
   @override
   Widget build(BuildContext context) {
-    print('_ListState');
+    final appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('sss'),
+        title: Text('Search Screen'),
       ),
       body: Center(
         child: Column(
@@ -23,6 +26,9 @@ class _ListState extends State<List> {
           children: <Widget>[
             Text(
               'List widget',
+            ),
+            Text(
+              appProvider.test,
             ),
           ],
         ),
