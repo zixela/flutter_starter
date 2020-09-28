@@ -1,4 +1,7 @@
-
 class Test {
-  String s = 'sddsdsdsd';
+  String s = 'test service';
+
+  getString() {
+    return 'get string';
+  }
 }

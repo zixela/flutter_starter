@@ -9,6 +9,7 @@ import '../router/navigation_service.dart';
 
 import '../widgets/drawer.dart';
 
+import '../services/index.dart';
 import '../utils/locator.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -40,15 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
       Routes.anotherPageTransition,
       args: arguments,
     ).then((data) {
-      print("$data");
+      print("data from back click: $data");
     });
     final appProvider = Provider.of<AppProvider>(context, listen: false);
     appProvider.set('new state');
 
-    //final storageService = locator<StorageService>();
-
-    //StorageService();
-    //StorageService.setVal('test', 'test data');
+    locator<StorageService>().setVal('test', 'test data');
   }
 
   @override

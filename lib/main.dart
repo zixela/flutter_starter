@@ -8,6 +8,7 @@ import 'router/route_manager.dart';
 import 'router/navigation_service.dart';
 
 import 'utils/locator.dart';
+import 'services/index.dart';
 
 void main() {
   setupLocator();
@@ -18,7 +19,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    //print(locator<Test>());
+
+    // init StorageService
+    locator<StorageService>().getInstance();
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AppProvider>(create: (_) => AppProvider('sdsd')),
