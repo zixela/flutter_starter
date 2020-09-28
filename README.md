@@ -1,4 +1,4 @@
-# car_rent
+# flutter starter project
 
 A new Flutter project.
 
