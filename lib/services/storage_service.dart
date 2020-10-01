@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 
 class StorageService {
@@ -62,6 +63,14 @@ class StorageService {
     if (_preferences == null) return null;
 
     return _preferences.remove(key);
+  }
+
+  set localizedStrings(String m) => this.setVal('localizedStrings', m);
+
+  dynamic get localizedStrings {
+    final json = this.getVal('localizedStrings');
+    if (json != null) return jsonDecode(json);
+    return null;
   }
 
 }

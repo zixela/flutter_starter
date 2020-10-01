@@ -11,6 +11,7 @@ import '../widgets/drawer.dart';
 
 import '../services/index.dart';
 import '../utils/locator.dart';
+import '../widgets/txt.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Text('test')
+          child: Txt('l_about')
       ),
       drawer: AppDrawer(),
       floatingActionButton: FloatingActionButton(
@@ -66,5 +67,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-
 }
