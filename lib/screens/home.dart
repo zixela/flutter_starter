@@ -53,9 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+       /* backgroundColor: theme.dividerColor,*/
       ),
       body: Center(
           child: Txt('l_about' / context)

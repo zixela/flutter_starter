@@ -13,6 +13,8 @@ import 'router/navigation_service.dart';
 import 'utils/locator.dart';
 import 'utils/extensions.dart';
 
+import 'themes/app_theme.dart';
+
 import 'services/index.dart';
 
 import 'widgets/loader.dart';
@@ -60,6 +62,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
+    final appThemes = AppTheme(context: context);
+
     print('init main widget');
     if (langsLoaded == false) {
       return MaterialApp(
@@ -89,10 +94,7 @@ class _MyAppState extends State<MyApp> {
 
           return MaterialApp(
             title: 'Flutter Demo',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-            ),
+            theme: appThemes.lightTheme,
             //
             initialRoute: Routes.initialRoute,
             navigatorKey: NavigationService.instance.navigatorKey,
