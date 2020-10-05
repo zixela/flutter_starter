@@ -1,11 +1,16 @@
+import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+
+import '../config/global.dart';
 
 
 class StorageService {
 
   StorageService _storageService;
   SharedPreferences _preferences;
+  final kLANGUAGE = 'language';
+  final kCOUNTRY_CODE = 'countryCode';
 
 
   Future<StorageService> getInstance() async {
@@ -17,7 +22,6 @@ class StorageService {
       _preferences = await SharedPreferences.getInstance();
     }
 
-    print('get instance');
     return _storageService;
   }
 
@@ -63,6 +67,30 @@ class StorageService {
     if (_preferences == null) return null;
 
     return _preferences.remove(key);
+  }
+
+  /// Country Codes
+  set countryCode(String code) => setVal(kCOUNTRY_CODE, code);
+
+  dynamic get countryCode => get(kCOUNTRY_CODE) ?? null;
+
+
+  set language(String language) {
+    if (!COMMON.SUPPORTED_LANGUAGES.contains(language)) {
+      return;
+    }
+
+    setVal(kLANGUAGE, language);
+  }
+
+  String get language {
+    String language = getVal(kLANGUAGE);
+
+    if (language == null) {
+      setVal(kLANGUAGE, COMMON.DEFAULT_LANGUAGE);
+    }
+
+    return language ?? COMMON.DEFAULT_LANGUAGE;
   }
 
   set localizedStrings(String m) => this.setVal('localizedStrings', m);

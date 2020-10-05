@@ -8,7 +8,7 @@ import '../services/test.dart';
 
 final GetIt locator = GetIt.instance;
 
-void setupLocator() async {
+setupLocator() async {
 
   locator.registerSingleton<Test>(Test());
   locator.registerSingleton<API>(API());
@@ -16,13 +16,16 @@ void setupLocator() async {
   //locator.registerFactory<StorageService>(() => StorageService()); // When you request an instance of the type from the service provider you'll get a new instance every time.
 
   // load languages if not in storage
-  final langs = locator<StorageService>().localizedStrings;
+  print("locator init langs start");
+  final storageService = await locator<StorageService>().getInstance();
+  final langs = storageService.localizedStrings;
 
   if (langs == null) {
     final res = await locator<API>().getLangs();
-
-    //locator<StorageService>().localizedStrings = jsonEncode(res.data);
-    print("save langs in storage: $res.data");
-    locator<StorageService>().setVal('localizedStrings',  'fgdgdg');
+    final s = jsonEncode(res.data);
+    //print("save langs in storage: $s");
+    locator<StorageService>().setVal('localizedStrings', s);
   }
+  print("locator init langs end: $langs");
+  return true;
 }

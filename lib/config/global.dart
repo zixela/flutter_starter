@@ -5,6 +5,9 @@ class COMMON {
   static const API_URL = 'https://api2.myauto.ge';
   static const DEFAULT_LANGUAGE = 'ka';
   static const REQUEST_STRICT_MODE = false;
+  static const DEFAULT_LOCALE = const Locale(DEFAULT_LANGUAGE);
+  static const SUPPORTED_LANGUAGES = ['ka', 'en', 'ru', 'az', 'hy'];
+
 
   static List<Locale> get SUPPORTED_LOCALES {
     return [
@@ -15,6 +18,4 @@ class COMMON {
       const Locale('hy')
     ];
   }
-
-  static const DEFAULT_LOCALE = const Locale(DEFAULT_LANGUAGE);
 }

@@ -11,6 +11,7 @@ import '../widgets/drawer.dart';
 
 import '../services/index.dart';
 import '../utils/locator.dart';
+import '../utils/extensions.dart';
 import '../widgets/txt.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Txt('l_about')
+          child: Txt('l_about' / context)
       ),
       drawer: AppDrawer(),
       floatingActionButton: FloatingActionButton(

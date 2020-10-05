@@ -28,7 +28,7 @@ class AppLocalizations {
       final localStorage = locator<StorageService>();
 
       final langs = localStorage.localizedStrings;
-
+      print('AppLocalizations load: $langs');
       if (langs == null) {
         return _getFromRootBundle();
       } else {
@@ -59,7 +59,7 @@ class AppLocalizations {
   }
 
   String translate(String key) {
-    print(locator<StorageService>().getVal('localizedStrings'));
+    print(_localizedStrings);
     if (_localizedStrings == null || _localizedStrings[key] == null) return key;
     return _localizedStrings[key];
   }
