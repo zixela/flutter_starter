@@ -37,9 +37,9 @@ class API {
         httpMethod: HttpMethod.GET,
         path: 'langGenerator',
         method: '');
-    print("getLangs: $res");
+    //print("getLangs: $res");
     if (res.versioning != null) {
-      print( res.versioning.langGenerator);
+      //print( res.versioning.langGenerator);
       //locator<LocalStorage>().localLangsVersion = res.versioning.langGenerator;
     }
 

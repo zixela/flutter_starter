@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../screens/home.dart';
-import '../screens/list.dart';
+import '../screens/search/list.dart';
 import '../screens/detail.dart';
 import '../widgets/bottom_tabs.dart';
 

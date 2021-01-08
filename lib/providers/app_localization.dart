@@ -59,7 +59,7 @@ class AppLocalizations {
   }
 
   String translate(String key) {
-    print(_localizedStrings);
+    //print(_localizedStrings);
     if (_localizedStrings == null || _localizedStrings[key] == null) return key;
     return _localizedStrings[key];
   }

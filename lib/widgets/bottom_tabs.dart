@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../screens/home.dart';
-import '../screens/list.dart';
+import '../screens/search/list.dart';
 import '../screens/profile.dart';
 
 class TabsPage extends StatefulWidget {
@@ -48,6 +48,7 @@ class _TabsPageState extends State<TabsPage> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
+        backgroundColor: Colors.blueAccent,
         onTap: _onItemTapped,
       ),
     );
